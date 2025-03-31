@@ -2,44 +2,118 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>プロフィール - Your Name</title>
+  <title>Takaya Iwai - Personal Homepage</title>
   <style>
     /* 基本スタイル */
     body {
       font-family: "Helvetica", sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background-color: #ffffff;
       color: #333;
     }
-    header {
+    /* ヘッダー */
+    #header {
       background-color: #003366;
       color: #fff;
       padding: 15px;
       text-align: center;
     }
-    nav {
-      margin: 10px 0;
+    /* ヘッダー下のサブタイトル（所属など） */
+    #header p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
     }
-    nav a {
-      color: #003366;
+    /* コンテナ：ナビゲーションとコンテンツを横並びに */
+    #container {
+      display: flex;
+      width: 960px;
+      margin: 20px auto;
+    }
+    /* 左側のナビゲーション */
+    #nav {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 15px;
+    }
+    #nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #nav ul li {
+      margin-bottom: 10px;
+    }
+    #nav ul li a {
       text-decoration: none;
+      color: #003366;
       font-weight: bold;
     }
-    section {
+    /* 右側のメインコンテンツ */
+    #content {
+      flex-grow: 1;
+      padding: 15px;
+      background-color: #fff;
+      margin-left: 20px;
+    }
+    /* 各セクションの見出し */
+    #content h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    /* リストのスタイル */
+    #content ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+    /* フッター */
+    #footer {
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>プロフィール</h1>
-  </header>
-  <nav>
-    <a href="index.html">ホームへ戻る</a>
-  </nav>
-  <section>
-    <p>ここに詳細なプロフィール情報を記載します。例：学歴、研究業績、受賞歴、研究分野、趣味など。</p>
-  </section>
+  <div id="header">
+    <h1>岩井喬也のホームページ</h1>
+  </div>
+  <div id="container">
+    <div id="nav">
+      <ul>
+        <!-- 左側のナビゲーションはそのまま -->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="#research">研究内容</a></li>
+        <li><a href="#publications">論文一覧</a></li>
+        <li><a href="#cv">経歴</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <!-- メインコンテンツを「お知らせ」と「リンク集」に書き換え -->
+      <section id="news">
+        <h2>お知らせ</h2>
+        <ul>
+          <li>2025年3月31日: サイト更新のお知らせ <a href="update.html">詳しくはこちら</a></li>
+          <li>2025年3月25日: 研究成果発表のお知らせ <a href="research.html">詳細を見る</a></li>
+          <li>2025年3月20日: セミナー情報のお知らせ <a href="seminar.html">セミナー情報</a></li>
+        </ul>
+      </section>
+      <section id="links">
+        <h2>リンク集</h2>
+        <ul>
+          <li><a href="https://www.example1.com" target="_blank">Example Site 1</a></li>
+          <li><a href="https://www.example2.com" target="_blank">Example Site 2</a></li>
+          <li><a href="https://www.example3.com" target="_blank">Example Site 3</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <div id="footer">
+    <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
+  </div>
 </body>
 </html>
