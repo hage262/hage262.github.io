@@ -19,11 +19,6 @@
       padding: 15px;
       text-align: center;
     }
-    /* ヘッダー下のサブタイトル（所属など） */
-    #header p {
-      margin: 5px 0 0;
-      font-size: 0.9em;
-    }
     /* コンテナ：ナビゲーションとコンテンツを横並びに */
     #container {
       display: flex;
@@ -56,16 +51,6 @@
       background-color: #fff;
       margin-left: 20px;
     }
-    /* 各セクションの見出し */
-    #content h2 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
-    /* リストのスタイル */
-    #content ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
     /* フッター */
     #footer {
       background-color: #003366;
@@ -73,6 +58,18 @@
       text-align: center;
       padding: 10px;
       margin-top: 20px;
+    }
+    /* Twitterウィジェットを右下に固定 */
+    #twitter-widget {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;   /* 必要に応じて幅を調整 */
+      height: 400px;  /* 必要に応じて高さを調整 */
+      background-color: #fff;
+      border: 1px solid #ccc;
+      overflow: auto;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -83,7 +80,6 @@
   <div id="container">
     <div id="nav">
       <ul>
-        <!-- 左側のナビゲーションはそのまま -->
         <li><a href="index.html">Home</a></li>
         <li><a href="profile.html">プロフィール</a></li>
         <li><a href="#research">研究内容</a></li>
@@ -93,7 +89,7 @@
       </ul>
     </div>
     <div id="content">
-      <!-- メインコンテンツを「お知らせ」と「リンク集」に書き換え -->
+      <!-- お知らせセクション -->
       <section id="news">
         <h2>お知らせ</h2>
         <ul>
@@ -102,6 +98,7 @@
           <li>2025年3月20日: セミナー情報のお知らせ <a href="seminar.html">セミナー情報</a></li>
         </ul>
       </section>
+      <!-- リンク集セクション -->
       <section id="links">
         <h2>リンク集</h2>
         <ul>
@@ -114,6 +111,12 @@
   </div>
   <div id="footer">
     <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
+  </div>
+  
+  <!-- Twitterウィジェット -->
+  <div id="twitter-widget">
+    <a class="twitter-timeline" href="https://twitter.com/hage262?ref_src=twsrc%5Etfw">Tweets by hage262</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 </body>
 </html>
