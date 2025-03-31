@@ -61,6 +61,11 @@
       border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
     }
+    /* リストのスタイル */
+    #content ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
     /* フッター */
     #footer {
       background-color: #003366;
@@ -78,7 +83,7 @@
   <div id="container">
     <div id="nav">
       <ul>
-        <!-- Homeリンクを追加 -->
+        <!-- 左側のナビゲーションはそのまま -->
         <li><a href="index.html">Home</a></li>
         <li><a href="profile.html">プロフィール</a></li>
         <li><a href="#research">研究内容</a></li>
@@ -88,25 +93,22 @@
       </ul>
     </div>
     <div id="content">
-      <section id="profile">
-        <h2>プロフィール</h2>
-        <p>ここに自己紹介文を記載します。専門分野、研究の背景、興味・関心など自由に記述してください。</p>
+      <!-- メインコンテンツを「お知らせ」と「リンク集」に書き換え -->
+      <section id="news">
+        <h2>お知らせ</h2>
+        <ul>
+          <li>2025年3月31日: サイト更新のお知らせ <a href="update.html">詳しくはこちら</a></li>
+          <li>2025年3月25日: 研究成果発表のお知らせ <a href="research.html">詳細を見る</a></li>
+          <li>2025年3月20日: セミナー情報のお知らせ <a href="seminar.html">セミナー情報</a></li>
+        </ul>
       </section>
-      <section id="research">
-        <h2>研究内容</h2>
-        <p>自身の研究テーマ、研究の目的、取り組み内容などを詳しく説明してください。たとえば、研究の概要や使用している手法、実験設備などについても記載できます。</p>
-      </section>
-      <section id="publications">
-        <h2>論文一覧</h2>
-        <p>主要な論文や出版物、研究成果のリストを掲載してください。リンクを設定する場合は、各論文のURLを記載すると便利です。</p>
-      </section>
-      <section id="cv">
-        <h2>経歴</h2>
-        <p>学歴、職歴、受賞歴、その他の経歴情報を記述してください。年表形式にすると見やすくなります。</p>
-      </section>
-      <section id="contact">
-        <h2>お問い合わせ</h2>
-        <p>メールアドレスや、問い合わせフォームへのリンク、SNSアカウントなど、連絡先情報を記載してください。</p>
+      <section id="links">
+        <h2>リンク集</h2>
+        <ul>
+          <li><a href="https://www.example1.com" target="_blank">Example Site 1</a></li>
+          <li><a href="https://www.example2.com" target="_blank">Example Site 2</a></li>
+          <li><a href="https://www.example3.com" target="_blank">Example Site 3</a></li>
+        </ul>
       </section>
     </div>
   </div>
