@@ -2,86 +2,115 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>金無研究室ホームページ</title>
+  <title>Your Name - Personal Homepage</title>
   <style>
-    /* 全体のスタイル */
+    /* 基本スタイル */
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: "Helvetica", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #ffffff;
+      color: #333;
     }
     /* ヘッダー */
-    header {
-      background-color: #333;
+    #header {
+      background-color: #003366;
       color: #fff;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
     }
-    /* ナビゲーション */
-    nav {
-      background-color: #444;
-      padding: 10px;
-      text-align: center;
+    /* ヘッダー下のサブタイトル（所属など） */
+    #header p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
     }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    /* メインコンテンツ */
-    main {
-      padding: 20px;
-      background-color: #fff;
+    /* コンテナ：ナビゲーションとコンテンツを横並びに */
+    #container {
+      display: flex;
+      width: 960px;
       margin: 20px auto;
-      width: 90%;
-      max-width: 800px;
     }
-    /* セクションの見出し */
-    main h2 {
-      border-bottom: 2px solid #333;
+    /* 左側のナビゲーション */
+    #nav {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 15px;
+    }
+    #nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #nav ul li {
+      margin-bottom: 10px;
+    }
+    #nav ul li a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    /* 右側のメインコンテンツ */
+    #content {
+      flex-grow: 1;
+      padding: 15px;
+      background-color: #fff;
+      margin-left: 20px;
+    }
+    /* 各セクションの見出し */
+    #content h2 {
+      border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
     }
     /* フッター */
-    footer {
-      background-color: #333;
+    #footer {
+      background-color: #003366;
       color: #fff;
       text-align: center;
       padding: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>金無研究室</h1>
-  </header>
-  <nav>
-    <a href="#introduction">研究室紹介</a>
-    <a href="#research">研究内容</a>
-    <a href="#members">メンバー</a>
-    <a href="#contact">お問い合わせ</a>
-  </nav>
-  <main>
-    <section id="introduction">
-      <h2>研究室紹介</h2>
-      <p>ここに研究室の概要や歴史などの紹介文を記述します。</p>
-    </section>
-    <section id="research">
-      <h2>研究内容</h2>
-      <p>こちらに研究テーマやプロジェクトなどの詳細を記述してください。</p>
-    </section>
-    <section id="members">
-      <h2>メンバー</h2>
-      <p>所属する教員や学生のリストなどを記載するセクションです。</p>
-    </section>
-    <section id="contact">
-      <h2>お問い合わせ</h2>
-      <p>連絡先情報や問い合わせフォームなどをここに記載します。</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 金無研究室</p>
-  </footer>
+  <div id="header">
+    <h1>Your Name</h1>
+    <p>（所属大学・研究機関、所属学部・研究科など）</p>
+  </div>
+  <div id="container">
+    <div id="nav">
+      <ul>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#research">研究内容</a></li>
+        <li><a href="#publications">論文一覧</a></li>
+        <li><a href="#cv">経歴</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <section id="profile">
+        <h2>プロフィール</h2>
+        <p>ここに自己紹介文を記載します。専門分野、研究の背景、興味・関心など自由に記述してください。</p>
+      </section>
+      <section id="research">
+        <h2>研究内容</h2>
+        <p>自身の研究テーマ、研究の目的、取り組み内容などを詳しく説明してください。たとえば、研究の概要や使用している手法、実験設備などについても記載できます。</p>
+      </section>
+      <section id="publications">
+        <h2>論文一覧</h2>
+        <p>主要な論文や出版物、研究成果のリストを掲載してください。リンクを設定する場合は、各論文のURLを記載すると便利です。</p>
+      </section>
+      <section id="cv">
+        <h2>経歴</h2>
+        <p>学歴、職歴、受賞歴、その他の経歴情報を記述してください。年表形式にすると見やすくなります。</p>
+      </section>
+      <section id="contact">
+        <h2>お問い合わせ</h2>
+        <p>メールアドレスや、問い合わせフォームへのリンク、SNSアカウントなど、連絡先情報を記載してください。</p>
+      </section>
+    </div>
+  </div>
+  <div id="footer">
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </div>
 </body>
 </html>
