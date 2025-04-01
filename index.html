@@ -19,10 +19,6 @@
       padding: 15px;
       text-align: center;
     }
-    #header p {
-      margin: 5px 0 0;
-      font-size: 1.1em;
-    }
     /* コンテナ：ナビゲーションとコンテンツを横並びに */
     #container {
       display: flex;
@@ -55,6 +51,11 @@
       background-color: #fff;
       margin-left: 20px;
     }
+    /* 各セクションの見出し */
+    #content h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
     /* フッター */
     #footer {
       background-color: #003366;
@@ -80,7 +81,6 @@
 <body>
   <div id="header">
     <h1>岩井喬也のホームページ</h1>
-    <p>岩井喬也のホームページへようこそ</p>
   </div>
   <div id="container">
     <div id="nav">
@@ -94,6 +94,11 @@
       </ul>
     </div>
     <div id="content">
+      <!-- ウェルカムメッセージ（お知らせ前に表示） -->
+      <section id="welcome">
+        <p>岩井喬也のホームページへようこそ</p>
+      </section>
+      
       <!-- お知らせセクション -->
       <section id="news">
         <h2>お知らせ</h2>
@@ -101,6 +106,7 @@
           <li>2025年2月22日 理論物理学生セミナー2025にて発表を行いました</li>
         </ul>
       </section>
+      
       <!-- リンク集セクション -->
       <section id="links">
         <h2>リンク集</h2>
@@ -110,6 +116,13 @@
           <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
         </ul>
       </section>
+      
+      <!-- 連絡先セクション -->
+      <section id="contact">
+        <h2>連絡先</h2>
+        <p>t_iwai at het.phys.sci.osaka-u.ac.jp</p>
+      </section>
+      
     </div>
   </div>
   <div id="footer">
