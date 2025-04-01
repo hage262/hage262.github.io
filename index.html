@@ -51,7 +51,7 @@
       background-color: #fff;
       margin-left: 20px;
     }
-    /* 各セクションの見出し */
+    /* セクションの見出し */
     #content h2 {
       border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
@@ -75,8 +75,8 @@
       position: fixed;
       bottom: 0;
       right: 0;
-      width: 300px;   /* 必要に応じて幅を調整 */
-      height: 400px;  /* 必要に応じて高さを調整 */
+      width: 300px;
+      height: 400px;
       background-color: #fff;
       border: 1px solid #ccc;
       overflow: auto;
@@ -99,7 +99,7 @@
       </ul>
     </div>
     <div id="content">
-      <!-- ウェルカムメッセージ（お知らせ前に表示） -->
+      <!-- ウェルカムメッセージ -->
       <section id="welcome">
         <p>岩井喬也のホームページへようこそ</p>
       </section>
@@ -108,7 +108,8 @@
       <section id="news">
         <h2>お知らせ</h2>
         <ul>
-          <li>2025年2月22日 理論物理学生セミナー2025にて発表を行いました</li>
+          <!-- リンクを設定。クリックすると presentations.html の id="2025-02-25" に飛びます -->
+          <li><a href="presentations.html#2025-02-25">2025年2月25日に口頭発表を行いました。</a></li>
         </ul>
       </section>
       
