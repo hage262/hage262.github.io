@@ -14,12 +14,13 @@
       font-family: "Helvetica", sans-serif;
       background-color: #f0f0f0;
       color: #333;
+      padding-top: 60px; /* 固定ヘッダー分の余白 */
     }
     /* ヘッダー（ナビゲーション） */
     header {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
-      position: fixed; /* 常に画面上部に固定 */
+      background-color: rgba(0, 0, 0, 0.6);
+      position: fixed;
       top: 0;
       left: 0;
       z-index: 999;
@@ -41,17 +42,26 @@
       list-style: none;
       display: flex;
       gap: 20px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: flex;
+      align-items: center;
     }
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+      padding: 5px 10px;
       transition: opacity 0.3s;
     }
     nav ul li a:hover {
       opacity: 0.7;
     }
-    /* ヒーローセクション（背景画像＋テキスト） */
+    /* ヒーローセクション */
     .hero {
       height: 100vh;
       background: url("IMG_1883.png") no-repeat center center;
@@ -105,7 +115,7 @@
       font-size: 1rem;
       line-height: 1.8;
     }
-    /* お知らせ・リンク・連絡先セクション（共通スタイル） */
+    /* お知らせ・リンク・連絡先 */
     #news ul,
     #links ul {
       list-style: none;
@@ -131,10 +141,6 @@
       color: #fff;
       text-align: center;
       padding: 20px;
-    }
-    /* 固定ヘッダー分の余白 */
-    body {
-      padding-top: 60px;
     }
   </style>
 </head>
@@ -164,21 +170,13 @@
 
   <!-- メインコンテンツ -->
   <main>
-    <!-- 他のセクションがあればここに追加 -->
-
-    <!-- お知らせセクション -->
+    <!-- ここに必要に応じて他のセクションを追加 -->
     <section id="news">
       <h2>お知らせ</h2>
       <ul>
-        <li>
-          <a href="presentations.html#2025-02-25">
-            2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
-          </a>
-        </li>
+        <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
       </ul>
     </section>
-
-    <!-- リンク集セクション -->
     <section id="links">
       <h2>リンク集</h2>
       <ul>
@@ -187,8 +185,6 @@
         <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
       </ul>
     </section>
-
-    <!-- 連絡先セクション -->
     <section id="contact">
       <h2>連絡先</h2>
       <p>
@@ -202,5 +198,6 @@
   <footer>
     <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
