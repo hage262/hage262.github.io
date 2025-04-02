@@ -2,127 +2,169 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Takaya Iwai - Personal Homepage</title>
+  <title>岩井喬也のホームページへようこそ</title>
   <style>
-    /* 基本スタイル */
+    /* 全体のリセットと基本設定 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: "Helvetica", sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
+      background-color: #f0f0f0;
       color: #333;
     }
-    /* ヘッダー */
-    #header {
-      background-color: #003366;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
+
+    /* ヘッダー（ナビゲーション） */
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
+      position: fixed; /* 常に画面上部に固定 */
+      top: 0;
+      left: 0;
+      z-index: 999;
     }
-    /* コンテナ：ナビゲーションとコンテンツを横並びに */
-    #container {
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
       display: flex;
-      width: 960px;
-      margin: 20px auto;
+      justify-content: space-between;
+      align-items: center;
     }
-    /* 左側のナビゲーション */
-    #nav {
-      width: 200px;
-      background-color: #f0f0f0;
-      padding: 15px;
-    }
-    #nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #nav ul li {
-      margin-bottom: 10px;
-    }
-    #nav ul li a {
-      text-decoration: none;
-      color: #003366;
+    /* ロゴや左側のタイトルがあればここに */
+    .logo {
+      color: #fff;
+      font-size: 1.2rem;
       font-weight: bold;
     }
-    /* 右側のメインコンテンツ */
-    #content {
-      flex-grow: 1;
-      padding: 15px;
-      background-color: #fff;
-      margin-left: 20px;
+    /* ナビゲーションメニュー */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
     }
-    /* セクションの見出し */
-    #content h2 {
-      border-bottom: 1px solid #ccc;
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.3s;
+    }
+    nav ul li a:hover {
+      opacity: 0.7;
+    }
+
+    /* ヒーローセクション（背景画像） */
+    .hero {
+      height: 100vh; /* 全画面表示 */
+      background: url("IMG_1883.png") no-repeat center center; /* ユーザーの写真ファイル名を設定 */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    /* ヒーローセクションのオーバーレイ（暗め） */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    /* ヒーローセクションのテキスト */
+    .hero-text {
+      position: relative;
+      z-index: 2; /* オーバーレイより前面に */
+      color: #fff;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* メインコンテンツ（必要に応じて追加） */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px; /* ヒーローと被らないよう余白を多めに */
+      background-color: #fff;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #333;
+      margin-bottom: 20px;
       padding-bottom: 5px;
     }
-    /* ウェルカムメッセージを大きく */
-    #welcome p {
-      font-size: 2em;
-      font-weight: bold;
-      margin: 20px 0;
+    section p {
+      font-size: 1rem;
+      line-height: 1.8;
     }
+
     /* フッター */
-    #footer {
+    footer {
       background-color: #003366;
       color: #fff;
       text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      padding: 20px;
+    }
+
+    /* 固定ヘッダーの分だけメインコンテンツを下げる */
+    body {
+      padding-top: 60px; /* ヘッダーの高さを考慮して調整 */
     }
   </style>
 </head>
 <body>
-  <div id="header">
-    <h1>岩井喬也のホームページ</h1>
-  </div>
-  <div id="container">
-    <div id="nav">
+
+  <!-- ヘッダー（ナビゲーション） -->
+  <header>
+    <nav>
+      <div class="logo">岩井喬也のホームページ</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">プロフィール</a></li>
-        <li><a href="#research.html">研究</a></li>
-        <li><a href="presentations.html">発表</a></li>
-        <li><a href="#publications">論文一覧</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">プロフィール</a></li>
+        <li><a href="#">研究</a></li>
+        <li><a href="#">発表</a></li>
+        <li><a href="#">論文一覧</a></li>
+        <li><a href="#">お問い合わせ</a></li>
       </ul>
-    </div>
-    <div id="content">
-      <!-- ウェルカムメッセージ -->
-      <section id="welcome">
-        <p>岩井喬也のホームページへようこそ</p>
-      </section>
-      
-      <!-- お知らせセクション -->
-      <section id="news">
-        <h2>お知らせ</h2>
-        <ul>
-          <!-- 発表項目のリンク。クリックで presentations.html の該当箇所にジャンプ -->
-          <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
-        </ul>
-      </section>
-      
-      <!-- リンク集セクション -->
-      <section id="links">
-        <h2>リンク集</h2>
-        <ul>
-          <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
-          <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
-          <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
-        </ul>
-      </section>
-      
-      <!-- 連絡先セクション -->
-      <section id="contact">
-        <h2>連絡先</h2>
-        <p>t_iwai at het.phys.sci.osaka-u.ac.jp<br>
-        ※ 「at」を「@」に置き換えてください</p>
-      </section>
-      
+    </nav>
+  </header>
+
+  <!-- ヒーローセクション（背景画像＋テキスト） -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>岩井喬也のホームページへようこそ</h1>
+      <p>標準理論を超える新しい物理理論の探究</p>
+      <p>（サブテキストや自己紹介文などをここに入れてもOKです）</p>
     </div>
   </div>
-  <div id="footer">
+
+  <!-- メインコンテンツ（必要に応じて） -->
+  <main>
+    <section>
+      <h2>ここにセクションの見出し</h2>
+      <p>ここに詳細な説明を記述できます。</p>
+    </section>
+    <!-- 必要に応じて、さらにセクションを追加 -->
+  </main>
+
+  <!-- フッター -->
+  <footer>
     <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
-  </div>
+  </footer>
 </body>
 </html>
