@@ -2,136 +2,207 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>発表 - Takaya Iwai</title>
   <style>
-    /* 基本スタイル */
+    /* 全体リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: "Helvetica", sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #ffffff;
       color: #333;
+      padding-top: 60px; /* 固定ヘッダー分の余白 */
     }
-    /* ヘッダー */
-    #header {
-      background-color: #003366;
-      color: #fff;
+
+    /* ヘッダー（固定） */
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 15px;
-      text-align: center;
-    }
-    /* コンテナ：ナビゲーションとコンテンツを横並びに */
-    #container {
       display: flex;
-      width: 960px;
-      margin: 20px auto;
+      justify-content: space-between;
+      align-items: center;
     }
-    /* 左側のナビゲーション */
-    #nav {
-      width: 200px;
-      background-color: #f0f0f0;
-      padding: 15px;
-    }
-    #nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #nav ul li {
-      margin-bottom: 10px;
-    }
-    #nav ul li a {
-      text-decoration: none;
-      color: #003366;
+    .logo {
+      color: #fff;
+      font-size: 1.2rem;
       font-weight: bold;
     }
-    /* 右側のメインコンテンツ */
-    #content {
-      flex-grow: 1;
-      padding: 15px;
-      margin-left: 20px;
+
+    /* ハンバーガーボタン */
+    .hamburger {
+      display: none;  /* PC時は非表示 */
+      font-size: 1.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ナビゲーション */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 5px 10px;
+      transition: opacity 0.3s;
+    }
+    .nav-links li a:hover {
+      opacity: 0.7;
+    }
+
+    /* メインコンテンツ */
+    main {
+      max-width: 960px; /* 元のレイアウトに合わせて960px */
+      margin: 20px auto;
+      padding: 20px;
       background-color: #fff;
     }
-    /* セクションの見出し */
-    #content h2 {
+    main h2 {
       border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
+      margin-bottom: 20px;
     }
-    /* PDFリンクのスタイル */
-    a.pdf-link {
+    /* 発表コンテンツのスタイル */
+    .presentation-block {
+      margin-bottom: 20px;
+    }
+    .presentation-block p.title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .presentation-block p.subtitle {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .presentation-block a.pdf-link {
       color: #003366;
       font-weight: bold;
       text-decoration: none;
     }
-    a.pdf-link:hover {
+    .presentation-block a.pdf-link:hover {
       text-decoration: underline;
     }
-    /* 区切り線 */
     hr.separator {
       border: 1px solid #ccc;
       margin: 30px 0;
     }
-    /* フッター：コンテナと同じ幅に中央揃え */
-    #footer {
-      width: 960px;
-      margin: 20px auto 0;
+
+    /* フッター */
+    footer {
+      max-width: 960px;
+      margin: 20px auto;
       background-color: #003366;
       color: #fff;
       text-align: center;
       padding: 10px;
     }
+
+    /* スマホ用のメディアクエリ */
+    @media (max-width: 600px) {
+      .hamburger {
+        display: block; /* スマホで表示 */
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none; /* 初期は非表示 */
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links li a {
+        display: block;
+        width: 100%;
+      }
+    }
   </style>
+  <script>
+    // ハンバーガーメニューの開閉
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "flex";
+      }
+    }
+  </script>
 </head>
 <body>
-  <div id="header">
-    <h1>発表</h1>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">岩井喬也のホームページ</div>
+    <!-- ハンバーガーボタン -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile.html">プロフィール</a></li>
+      <li><a href="#">研究</a></li>
+      <li><a href="presentations.html">発表</a></li>
+      <li><a href="#">論文一覧</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
   </div>
-  <div id="container">
-    <div id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">プロフィール</a></li>
-<li><a href="#research.html">研究</a></li>
-        <li><a href="presentations.html">発表</a></li>
-        <li><a href="#publications">論文一覧</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
+</header>
+
+<main>
+  <section id="presentation">
+    <h2>発表内容</h2>
+    
+    <!-- 2025年の発表 -->
+    <div class="presentation-block">
+      <p id="2025-02-25" class="title">2025年2月25日理論物理学学生セミナー(口頭発表)</p>
+      <p class="subtitle">MeV質量のアクシオンに関する研究</p>
+      <p>以下のリンクからPDF資料をご覧いただけます:</p>
+      <p><a class="pdf-link" href="seminar2025.pdf" target="_blank">発表資料 (PDF)</a></p>
     </div>
-    <div id="content">
-      <section id="presentation">
-        <h2>発表内容</h2>
-        
-        <!-- 2025年の発表 -->
-        <div style="margin-bottom: 20px;">
-          <p id="2025-02-25" style="font-size: 1.5em; font-weight: bold;">
-            2025年2月25日理論物理学学生セミナー(口頭発表)
-          </p>
-          <p style="font-size: 1.2em; font-weight: bold;">
-            MeV質量のアクシオンに関する研究
-          </p>
-          <p>以下のリンクからPDF資料をご覧いただけます:</p>
-          <p><a class="pdf-link" href="seminar2025.pdf" target="_blank">発表資料 (PDF)</a></p>
-        </div>
-        
-        <!-- 区切り線 -->
-        <hr class="separator">
-        
-        <!-- 2023年の発表 -->
-        <div style="margin-bottom: 20px;">
-          <p id="2023-08-19" style="font-size: 1.5em; font-weight: bold;">
-            2023年8月19日 原子核三者若手夏の学校(ポスター発表)
-          </p>
-          <p style="font-size: 1.2em; font-weight: bold;">
-            初期宇宙における電弱一次相転移由来の原始ブラックホールとその検証可能性
-          </p>
-          <p>以下のリンクからPDF資料をご覧いただけます:</p>
-          <p><a class="pdf-link" href="natsugaku2023.pdf" target="_blank">発表資料 (PDF)</a></p>
-        </div>
-        
-      </section>
+
+    <hr class="separator">
+
+    <!-- 2023年の発表 -->
+    <div class="presentation-block">
+      <p id="2023-08-19" class="title">2023年8月19日 原子核三者若手夏の学校(ポスター発表)</p>
+      <p class="subtitle">初期宇宙における電弱一次相転移由来の原始ブラックホールとその検証可能性</p>
+      <p>以下のリンクからPDF資料をご覧いただけます:</p>
+      <p><a class="pdf-link" href="natsugaku2023.pdf" target="_blank">発表資料 (PDF)</a></p>
     </div>
-  </div>
-  <div id="footer">
-    <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
-  </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
