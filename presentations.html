@@ -65,7 +65,12 @@
     a.pdf-link:hover {
       text-decoration: underline;
     }
-    /* フッターをコンテナと同じ幅に中央揃え */
+    /* 区切り線 */
+    hr.separator {
+      border: 1px solid #ccc;
+      margin: 30px 0;
+    }
+    /* フッター：コンテナと同じ幅に中央揃え */
     #footer {
       width: 960px;
       margin: 20px auto 0;
@@ -93,14 +98,34 @@
     <div id="content">
       <section id="presentation">
         <h2>発表内容</h2>
-        <p id="2025-02-25" style="font-size: 1.5em; font-weight: bold;">
-          2025年2月25日理論物理学学生セミナー(口頭発表)
-        </p>
-        <p style="font-size: 1.2em; font-weight: bold;">
-          MeV質量のアクシオンに関する研究
-        </p>
-        <p>以下のリンクからPDF資料をご覧いただけます:</p>
-        <p><a class="pdf-link" href="seminar2025.pdf" target="_blank">発表資料 (PDF)</a></p>
+        
+        <!-- 2025年の発表 -->
+        <div style="margin-bottom: 20px;">
+          <p id="2025-02-25" style="font-size: 1.5em; font-weight: bold;">
+            2025年2月25日理論物理学学生セミナー(口頭発表)
+          </p>
+          <p style="font-size: 1.2em; font-weight: bold;">
+            MeV質量のアクシオンに関する研究
+          </p>
+          <p>以下のリンクからPDF資料をご覧いただけます:</p>
+          <p><a class="pdf-link" href="seminar2025.pdf" target="_blank">発表資料 (PDF)</a></p>
+        </div>
+        
+        <!-- 区切り線 -->
+        <hr class="separator">
+        
+        <!-- 2023年の発表 -->
+        <div style="margin-bottom: 20px;">
+          <p id="2023-08-19" style="font-size: 1.5em; font-weight: bold;">
+            2023年8月19日 原子核三者若手夏の学校(ポスター発表)
+          </p>
+          <p style="font-size: 1.2em; font-weight: bold;">
+            初期宇宙における電弱一次相転移由来の原始ブラックホールとその検証可能性
+          </p>
+          <p>以下のリンクからPDF資料をご覧いただけます:</p>
+          <p><a class="pdf-link" href="natsugaku2023.pdf" target="_blank">発表資料 (PDF)</a></p>
+        </div>
+        
       </section>
     </div>
   </div>
