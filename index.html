@@ -153,6 +153,7 @@
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
+
     /* フッター */
     footer {
       background-color: #003366;
@@ -195,7 +196,7 @@
         padding-left: 30px;
       }
       .dropdown:hover .submenu {
-        display: block; /* ホバーではなく、クリック式にしたければJSで切替 */
+        display: block; /* ホバーではなく、クリック式にしたければJSで更に制御 */
       }
     }
   </style>
@@ -243,13 +244,19 @@
 </div>
 
 <main>
-  <!-- ここに各種セクションを追加可能 -->
+  <!-- お知らせセクション -->
   <section id="news">
     <h2>お知らせ</h2>
     <ul>
-      <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
+      <li>
+        <a href="presentations.html#2025-02-25">
+          2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
+        </a>
+      </li>
     </ul>
   </section>
+
+  <!-- リンク集セクション -->
   <section id="links">
     <h2>リンク集</h2>
     <ul>
@@ -258,6 +265,8 @@
       <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
     </ul>
   </section>
+
+  <!-- 連絡先セクション -->
   <section id="contact">
     <h2>連絡先</h2>
     <p>
