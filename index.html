@@ -70,18 +70,6 @@
       padding: 10px;
       margin-top: 20px;
     }
-    /* Twitterウィジェットを右下に固定 */
-    #twitter-widget {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 300px;
-      height: 400px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      overflow: auto;
-      z-index: 1000;
-    }
   </style>
 </head>
 <body>
@@ -93,7 +81,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="profile.html">プロフィール</a></li>
-<li><a href="#reserch.html">研究</a></li>
+        <li><a href="#research.html">研究</a></li>
         <li><a href="presentations.html">発表</a></li>
         <li><a href="#publications">論文一覧</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
@@ -109,7 +97,7 @@
       <section id="news">
         <h2>お知らせ</h2>
         <ul>
-          <!-- リンクを設定。クリックすると presentations.html の id="2025-02-25" に飛びます -->
+          <!-- 発表項目のリンク。クリックで presentations.html の該当箇所にジャンプ -->
           <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
         </ul>
       </section>
@@ -135,12 +123,6 @@
   </div>
   <div id="footer">
     <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
-  </div>
-  
-  <!-- Twitterウィジェット -->
-  <div id="twitter-widget">
-    <a class="twitter-timeline" href="https://twitter.com/hage262?ref_src=twsrc%5Etfw">Tweets by hage262</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 </body>
 </html>
