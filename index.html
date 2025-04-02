@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>岩井喬也のホームページへようこそ</title>
   <style>
     /* 全体のリセットと基本設定 */
@@ -21,90 +20,77 @@
     /* ヘッダー（ナビゲーション） */
     header {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: #333;  /* 全体のヘッダー背景 */
       position: fixed;
       top: 0;
       left: 0;
       z-index: 999;
     }
-    .nav-container {
+    nav {
       max-width: 1200px;
       margin: 0 auto;
       padding: 15px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
     }
+    /* 全体のメニュー横並び */
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin-left: auto; /* ロゴやタイトルが左にある場合、メニューを右寄せ */
+    }
+    .nav-list li {
+      position: relative; /* ドロップダウン表示に必要 */
+    }
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 8px;
+      transition: opacity 0.3s;
+    }
+    .nav-list a:hover {
+      opacity: 0.7;
+    }
+
+    /* ロゴやヘッダータイトルなど（左側） */
     .logo {
       color: #fff;
       font-size: 1.2rem;
       font-weight: bold;
+      margin-right: auto; /* メニューを右に押しやる */
     }
 
-    /* ハンバーガーボタン */
-    .hamburger {
-      display: none;              /* PC時は非表示 */
-      font-size: 1.5rem;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
+    /* 研究 をホバーした時のドロップダウン（サブメニュー） */
+    .dropdown {
+      /* 研究のliにつけるクラス */
     }
-
-    /* ナビゲーション UL */
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin: 0;
-      padding: 0;
+    .dropdown:hover .mega-menu {
+      display: flex; /* ホバー時に表示 */
     }
-    .nav-links li {
-      position: relative; /* ドロップダウン表示に必要 */
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      padding: 5px 10px;
-      transition: opacity 0.3s;
-    }
-    .nav-links a:hover {
-      opacity: 0.7;
-    }
-
-    /* ドロップダウンのサブメニュー */
-    .dropdown > a::after {
-      content: " ▼";    /* ▼マークを付けてドロップダウンと分かりやすく */
-      font-size: 0.8rem;
-    }
-    .submenu {
-      display: none;
-      position: absolute;
+    /* メガメニュー全体 */
+    .mega-menu {
+      display: none; /* 初期は非表示 */
+      position: absolute; /* 親(li)を基準に配置 */
       top: 100%;
       left: 0;
-      background-color: #fff;
-      color: #333;
-      min-width: 150px;
-      list-style: none;
+      width: 100vw;  /* 画面全幅いっぱいに表示する場合 */
+      background-color: rgba(0,0,0,0.9);
       padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      justify-content: center; /* 中央寄せ */
+      gap: 40px;               /* 項目間の隙間 */
     }
-    .submenu li a {
-      color: #333;
-      padding: 8px 15px;
+    .mega-menu a {
+      color: #fff;
       display: block;
+      padding: 10px 20px;
+      text-decoration: none;
       font-weight: normal;
+      white-space: nowrap; /* 折り返し防止 */
     }
-    .submenu li a:hover {
-      background-color: #f0f0f0;
-    }
-
-    /* PC表示時：ドロップダウンはホバーで表示 */
-    .dropdown:hover .submenu {
-      display: block;
+    .mega-menu a:hover {
+      background-color: #444;
     }
 
     /* ヒーローセクション */
@@ -122,7 +108,8 @@
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
@@ -137,6 +124,7 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
+
     /* メインコンテンツ */
     main {
       max-width: 1200px;
@@ -153,6 +141,7 @@
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
+
     /* フッター */
     footer {
       background-color: #003366;
@@ -161,115 +150,78 @@
       padding: 20px;
     }
 
-    /* スマホ用メディアクエリ */
-    @media (max-width: 600px) {
-      .hamburger {
-        display: block;  /* スマホ時は表示 */
-      }
-      .nav-links {
-        position: absolute;
-        top: 60px;      /* ヘッダーの下 */
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        gap: 15px;
-        width: 200px;
-        padding: 20px;
-        display: none;  /* 初期は非表示 */
-      }
-      .nav-links li {
-        width: 100%;
-      }
-      .nav-links li a {
-        display: block;
-        width: 100%;
-      }
-      /* ドロップダウンのサブメニューも縦並びに */
-      .submenu {
-        position: static; /* 絶対位置を無効化 */
-        background-color: transparent;
-        box-shadow: none;
-      }
-      .submenu li a {
-        color: #fff;     /* 背景が黒っぽいので白文字に */
-        padding-left: 30px;
-      }
-      .dropdown:hover .submenu {
-        display: block; /* ホバーではなく、クリック式にしたければJSで切替 */
-      }
-    }
   </style>
-  <script>
-    // ハンバーガーメニューの開閉を制御する
-    function toggleMenu() {
-      const navLinks = document.getElementById("nav-links");
-      if (navLinks.style.display === "flex") {
-        navLinks.style.display = "none";
-      } else {
-        navLinks.style.display = "flex";
-      }
-    }
-  </script>
 </head>
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">岩井喬也のホームページ</div>
-    <!-- ハンバーガーボタン -->
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <!-- ナビゲーションメニュー -->
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">プロフィール</a></li>
-      <!-- 研究項目：ドロップダウンメニュー -->
-      <li class="dropdown">
-        <a href="#">研究</a>
-        <ul class="submenu">
-          <li><a href="#">研究概要</a></li>
-          <li><a href="#">論文一覧</a></li>
-          <li><a href="presentations.html">発表</a></li>
-        </ul>
-      </li>
-      <li><a href="#">お問い合わせ</a></li>
-    </ul>
+  <header>
+    <nav>
+      <div class="logo">岩井喬也のホームページ</div>
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">プロフィール</a></li>
+
+        <!-- 研究 ドロップダウン -->
+        <li class="dropdown">
+          <a href="#">研究 ▼</a>
+          <div class="mega-menu">
+            <a href="#">研究概要</a>
+            <a href="#">論文一覧</a>
+            <a href="presentations.html">発表</a>
+            <!-- 必要に応じてさらに項目を追加 -->
+          </div>
+        </li>
+
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>岩井喬也のホームページへようこそ</h1>
+    </div>
   </div>
-</header>
 
-<div class="hero">
-  <div class="hero-text">
-    <h1>岩井喬也のホームページへようこそ</h1>
-  </div>
-</div>
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- お知らせセクション -->
+    <section id="news">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>
+          <a href="presentations.html#2025-02-25">
+            2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
+          </a>
+        </li>
+      </ul>
+    </section>
 
-<main>
-  <!-- ここに各種セクションを追加可能 -->
-  <section id="news">
-    <h2>お知らせ</h2>
-    <ul>
-      <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
-    </ul>
-  </section>
-  <section id="links">
-    <h2>リンク集</h2>
-    <ul>
-      <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
-      <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
-      <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
-    </ul>
-  </section>
-  <section id="contact">
-    <h2>連絡先</h2>
-    <p>
-      t_iwai at het.phys.sci.osaka-u.ac.jp<br>
-      ※ 「at」を「@」に置き換えてください
-    </p>
-  </section>
-</main>
+    <!-- リンク集セクション -->
+    <section id="links">
+      <h2>リンク集</h2>
+      <ul>
+        <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
+        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+        <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
+      </ul>
+    </section>
 
-<footer>
-  <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
-</footer>
+    <!-- 連絡先セクション -->
+    <section id="contact">
+      <h2>連絡先</h2>
+      <p>
+        t_iwai at het.phys.sci.osaka-u.ac.jp<br>
+        ※ 「at」を「@」に置き換えてください
+      </p>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
