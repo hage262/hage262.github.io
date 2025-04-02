@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>岩井喬也のホームページへようこそ</title>
   <style>
     /* 全体のリセットと基本設定 */
@@ -75,8 +76,10 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
@@ -142,6 +145,36 @@
       text-align: center;
       padding: 20px;
     }
+
+    /* スマホ用のメディアクエリ */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .logo {
+        font-size: 1rem;
+      }
+      nav ul li a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+      main {
+        padding: 60px 10px;
+      }
+      main section h2 {
+        font-size: 1.5rem;
+      }
+      main section p {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -151,10 +184,10 @@
     <nav>
       <div class="logo">岩井喬也のホームページ</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">プロフィール</a></li>
         <li><a href="#">研究</a></li>
-        <li><a href="presentations.html">発表</a></li>
+        <li><a href="#">発表</a></li>
         <li><a href="#">論文一覧</a></li>
         <li><a href="#">お問い合わせ</a></li>
       </ul>
@@ -170,13 +203,19 @@
 
   <!-- メインコンテンツ -->
   <main>
-    <!-- ここに必要に応じて他のセクションを追加 -->
+    <!-- お知らせセクション -->
     <section id="news">
       <h2>お知らせ</h2>
       <ul>
-        <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
+        <li>
+          <a href="presentations.html#2025-02-25">
+            2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
+          </a>
+        </li>
       </ul>
     </section>
+
+    <!-- リンク集セクション -->
     <section id="links">
       <h2>リンク集</h2>
       <ul>
@@ -185,6 +224,8 @@
         <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
       </ul>
     </section>
+
+    <!-- 連絡先セクション -->
     <section id="contact">
       <h2>連絡先</h2>
       <p>
