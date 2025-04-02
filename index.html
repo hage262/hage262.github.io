@@ -15,7 +15,6 @@
       background-color: #f0f0f0;
       color: #333;
     }
-
     /* ヘッダー（ナビゲーション） */
     header {
       width: 100%;
@@ -33,13 +32,11 @@
       justify-content: space-between;
       align-items: center;
     }
-    /* ロゴや左側のタイトルがあればここに */
     .logo {
       color: #fff;
       font-size: 1.2rem;
       font-weight: bold;
     }
-    /* ナビゲーションメニュー */
     nav ul {
       list-style: none;
       display: flex;
@@ -54,11 +51,10 @@
     nav ul li a:hover {
       opacity: 0.7;
     }
-
-    /* ヒーローセクション（背景画像） */
+    /* ヒーローセクション（背景画像＋テキスト） */
     .hero {
-      height: 100vh; /* 全画面表示 */
-      background: url("IMG_1883.png") no-repeat center center; /* ユーザーの写真ファイル名を設定 */
+      height: 100vh;
+      background: url("IMG_1883.png") no-repeat center center;
       background-size: cover;
       display: flex;
       justify-content: center;
@@ -66,7 +62,6 @@
       text-align: center;
       position: relative;
     }
-    /* ヒーローセクションのオーバーレイ（暗め） */
     .hero::before {
       content: "";
       position: absolute;
@@ -75,10 +70,9 @@
       background-color: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
-    /* ヒーローセクションのテキスト */
     .hero-text {
       position: relative;
-      z-index: 2; /* オーバーレイより前面に */
+      z-index: 2;
       color: #fff;
       max-width: 800px;
       padding: 20px;
@@ -91,28 +85,46 @@
       font-size: 1.2rem;
       line-height: 1.6;
     }
-
-    /* メインコンテンツ（必要に応じて追加） */
+    /* メインコンテンツ */
     main {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 80px 20px; /* ヒーローと被らないよう余白を多めに */
+      padding: 80px 20px;
       background-color: #fff;
     }
-    section {
+    main section {
       margin-bottom: 60px;
     }
-    section h2 {
+    main section h2 {
       font-size: 1.8rem;
       border-bottom: 2px solid #333;
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
-    section p {
+    main section p {
       font-size: 1rem;
       line-height: 1.8;
     }
-
+    /* お知らせ・リンク・連絡先セクション（共通スタイル） */
+    #news ul,
+    #links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #news ul li,
+    #links ul li {
+      margin-bottom: 10px;
+    }
+    #news a,
+    #links a {
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #news a:hover,
+    #links a:hover {
+      text-decoration: underline;
+    }
     /* フッター */
     footer {
       background-color: #003366;
@@ -120,10 +132,9 @@
       text-align: center;
       padding: 20px;
     }
-
-    /* 固定ヘッダーの分だけメインコンテンツを下げる */
+    /* 固定ヘッダー分の余白 */
     body {
-      padding-top: 60px; /* ヘッダーの高さを考慮して調整 */
+      padding-top: 60px;
     }
   </style>
 </head>
@@ -144,22 +155,47 @@
     </nav>
   </header>
 
-  <!-- ヒーローセクション（背景画像＋テキスト） -->
+  <!-- ヒーローセクション -->
   <div class="hero">
     <div class="hero-text">
       <h1>岩井喬也のホームページへようこそ</h1>
-      <p>標準理論を超える新しい物理理論の探究</p>
-      <p>（サブテキストや自己紹介文などをここに入れてもOKです）</p>
     </div>
   </div>
 
-  <!-- メインコンテンツ（必要に応じて） -->
+  <!-- メインコンテンツ -->
   <main>
-    <section>
-      <h2>ここにセクションの見出し</h2>
-      <p>ここに詳細な説明を記述できます。</p>
+    <!-- 他のセクションがあればここに追加 -->
+
+    <!-- お知らせセクション -->
+    <section id="news">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>
+          <a href="presentations.html#2025-02-25">
+            2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
+          </a>
+        </li>
+      </ul>
     </section>
-    <!-- 必要に応じて、さらにセクションを追加 -->
+
+    <!-- リンク集セクション -->
+    <section id="links">
+      <h2>リンク集</h2>
+      <ul>
+        <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
+        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+        <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
+      </ul>
+    </section>
+
+    <!-- 連絡先セクション -->
+    <section id="contact">
+      <h2>連絡先</h2>
+      <p>
+        t_iwai at het.phys.sci.osaka-u.ac.jp<br>
+        ※ 「at」を「@」に置き換えてください
+      </p>
+    </section>
   </main>
 
   <!-- フッター -->
