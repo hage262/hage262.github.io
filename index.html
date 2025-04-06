@@ -43,6 +43,7 @@
       font-size: 1.2rem;
       font-weight: bold;
     }
+
     /* ハンバーガーボタン */
     .hamburger {
       display: none;
@@ -52,6 +53,7 @@
       border: none;
       cursor: pointer;
     }
+
     /* ナビゲーション UL */
     .nav-links {
       list-style: none;
@@ -75,6 +77,7 @@
     .nav-links a:hover {
       opacity: 0.7;
     }
+
     /* ドロップダウンのサブメニュー */
     .dropdown > a::after {
       content: " ▼";
@@ -101,10 +104,10 @@
     .submenu li a:hover {
       background-color: #f0f0f0;
     }
-    /* PC表示時：ドロップダウンはホバーで表示 */
     .dropdown:hover .submenu {
       display: block;
     }
+
     /* ヒーローセクション */
     .hero {
       height: 100vh;
@@ -137,10 +140,11 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
+
     /* Scroll ボタン */
     .scroll-btn {
       position: absolute;
-      bottom: 60px; /* 従来30pxから60pxに変更して上に表示 */
+      bottom: 80px; /* 以前の60pxから80pxに変更 */
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
@@ -165,6 +169,7 @@
       50% { transform: rotate(-45deg) translateY(6px); }
       100% { transform: rotate(-45deg) translateY(0); }
     }
+
     /* メインコンテンツ */
     main {
       max-width: 1200px;
@@ -181,6 +186,7 @@
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
+
     /* お知らせ・リンク・連絡先 */
     #news ul,
     #links ul {
@@ -201,6 +207,7 @@
     #links a:hover {
       text-decoration: underline;
     }
+
     /* フッター */
     footer {
       background-color: #003366;
@@ -208,6 +215,7 @@
       text-align: center;
       padding: 20px;
     }
+
     /* スマホ用メディアクエリ */
     @media (max-width: 600px) {
       .hamburger {
@@ -246,17 +254,11 @@
       .hero-text h1 {
         font-size: 1.8rem;
       }
-      .hero-text p {
-        font-size: 1rem;
-      }
       main {
         padding: 60px 10px;
       }
       main section h2 {
         font-size: 1.5rem;
-      }
-      main section p {
-        font-size: 0.9rem;
       }
     }
   </style>
@@ -308,7 +310,6 @@
 
   <!-- メインコンテンツ -->
   <main>
-    <!-- お知らせセクション -->
     <section id="news">
       <h2>お知らせ</h2>
       <ul>
@@ -319,8 +320,6 @@
         </li>
       </ul>
     </section>
-
-    <!-- リンク集セクション -->
     <section id="links">
       <h2>リンク集</h2>
       <ul>
@@ -329,8 +328,6 @@
         <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
       </ul>
     </section>
-
-    <!-- 連絡先セクション -->
     <section id="contact">
       <h2>連絡先</h2>
       <p>
