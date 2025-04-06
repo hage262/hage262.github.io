@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>岩井喬也のホームページへようこそ</title>
-  <!-- Google Fonts の導入 -->
+  <!-- Google Fonts: Merriweather -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     /* 全体のリセットと基本設定 */
@@ -13,12 +13,16 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: "Helvetica", sans-serif;
       background-color: #f0f0f0;
       color: #333;
-      padding-top: 60px;
+      padding-top: 60px; /* 固定ヘッダー分の余白 */
     }
+    /* ヘッダー（ナビゲーション） */
     header {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.6);
@@ -40,7 +44,17 @@
       font-size: 1.2rem;
       font-weight: bold;
     }
-    nav ul {
+    /* ハンバーガーボタン */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    /* ナビゲーションメニュー */
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 20px;
@@ -48,7 +62,10 @@
       margin: 0;
       padding: 0;
     }
-    nav ul li a {
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
@@ -56,8 +73,37 @@
       padding: 5px 10px;
       transition: opacity 0.3s;
     }
-    nav ul li a:hover {
+    .nav-links a:hover {
       opacity: 0.7;
+    }
+    /* ドロップダウンのサブメニュー */
+    .dropdown > a::after {
+      content: " ▼";
+      font-size: 0.8rem;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      color: #333;
+      min-width: 150px;
+      list-style: none;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .submenu li a {
+      color: #333;
+      padding: 8px 15px;
+      display: block;
+      font-weight: normal;
+    }
+    .submenu li a:hover {
+      background-color: #f0f0f0;
+    }
+    .dropdown:hover .submenu {
+      display: block;
     }
     /* ヒーローセクション */
     .hero {
@@ -86,19 +132,43 @@
       color: #fff;
       max-width: 800px;
       padding: 20px;
-      /* 高級感のあるフォント、文字間隔、シャドウを追加 */
       font-family: 'Merriweather', serif;
       letter-spacing: 1px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     }
     .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 0; /* 改行なく1行で表示 */
     }
-    .hero-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    /* Scroll ボタン */
+    .scroll-btn {
+      position: absolute;
+      bottom: 100px; /* 80pxからさらに上げて100pxに変更 */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #fff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
+    .scroll-btn span.arrow {
+      width: 24px;
+      height: 24px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+      animation: down 1.5s infinite;
+    }
+    @keyframes down {
+      0% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-45deg) translateY(6px); }
+      100% { transform: rotate(-45deg) translateY(0); }
+    }
+    /* メインコンテンツ */
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -114,29 +184,70 @@
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
+    /* お知らせ・リンク・連絡先 */
+    #news ul,
+    #links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #news ul li,
+    #links ul li {
+      margin-bottom: 10px;
+    }
+    #news a,
+    #links a {
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #news a:hover,
+    #links a:hover {
+      text-decoration: underline;
+    }
+    /* フッター */
     footer {
       background-color: #003366;
       color: #fff;
       text-align: center;
       padding: 20px;
     }
+    /* スマホ用メディアクエリ */
     @media (max-width: 600px) {
-      nav ul {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
       }
-      .logo {
-        font-size: 1rem;
+      .nav-links li {
+        width: 100%;
       }
-      nav ul li a {
-        font-size: 0.9rem;
-        padding: 5px 8px;
+      .nav-links li a {
+        display: block;
+        width: 100%;
+      }
+      .submenu {
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .submenu li a {
+        color: #fff;
+        padding-left: 30px;
+      }
+      .dropdown:hover .submenu {
+        display: block;
       }
       .hero-text h1 {
-        font-size: 2rem;
-      }
-      .hero-text p {
-        font-size: 1rem;
+        font-size: 1.8rem;
       }
       main {
         padding: 60px 10px;
@@ -146,34 +257,54 @@
       }
     }
   </style>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "flex";
+      }
+    }
+  </script>
 </head>
 <body>
 
+  <!-- ヘッダー -->
   <header>
     <div class="nav-container">
       <div class="logo">岩井喬也のホームページ</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">プロフィール</a></li>
-          <li><a href="#">研究</a></li>
-          <li><a href="#">発表</a></li>
-          <li><a href="#">論文一覧</a></li>
-          <li><a href="#">お問い合わせ</a></li>
-        </ul>
-      </nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li class="dropdown">
+          <a href="#">研究</a>
+          <ul class="submenu">
+            <li><a href="#">研究概要</a></li>
+            <li><a href="#">論文</a></li>
+            <li><a href="presentations.html">発表</a></li>
+          </ul>
+        </li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
     </div>
   </header>
 
+  <!-- ヒーローセクション -->
   <div class="hero">
     <div class="hero-text">
-      <h1>岩井喬也のホームページへようこそ</h1>
-      <p>新しい物理理論の探究をここから始めましょう</p>
+      <h1 style="margin-bottom: 0;">岩井喬也のホームページへようこそ</h1>
     </div>
+    <!-- Scroll ボタン -->
+    <a href="#news" class="scroll-btn">
+      Scroll
+      <span class="arrow"></span>
+    </a>
   </div>
 
+  <!-- メインコンテンツ -->
   <main>
-    <!-- メインコンテンツの例 -->
     <section id="news">
       <h2>お知らせ</h2>
       <ul>
@@ -194,11 +325,14 @@
     </section>
     <section id="contact">
       <h2>連絡先</h2>
-      <p>t_iwai at het.phys.sci.osaka-u.ac.jp<br>
-      ※ 「at」を「@」に置き換えてください</p>
+      <p>
+        t_iwai at het.phys.sci.osaka-u.ac.jp<br>
+        ※ 「at」を「@」に置き換えてください
+      </p>
     </section>
   </main>
 
+  <!-- フッター -->
   <footer>
     <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
   </footer>
