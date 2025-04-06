@@ -5,164 +5,345 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>岩井喬也のホームページへようこそ</title>
   <style>
-    /* ===== 共通リセット ===== */
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;}               /* ← スムーズスクロール */
-
-    body{
-      font-family:"Helvetica",sans-serif;
-      background:#f0f0f0;
-      color:#333;
-      padding-top:60px;                        /* 固定ヘッダー分の余白 */
+    /* 全体のリセットと基本設定 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Helvetica", sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      padding-top: 60px; /* 固定ヘッダー分の余白 */
     }
 
-    /* ===== ヘッダー & ナビ ===== */
-    header{width:100%;background:rgba(0,0,0,.6);position:fixed;top:0;left:0;z-index:999}
-    .nav-container{max-width:1200px;margin:0 auto;padding:15px;display:flex;justify-content:space-between;align-items:center}
-    .logo{color:#fff;font-size:1.2rem;font-weight:bold}
-
-    .hamburger{display:none;font-size:1.5rem;color:#fff;background:none;border:none;cursor:pointer}
-
-    .nav-links{list-style:none;display:flex;gap:20px;align-items:center;margin:0}
-    .nav-links li{position:relative}
-    .nav-links a{color:#fff;text-decoration:none;font-weight:bold;font-size:1rem;padding:5px 10px;transition:opacity .3s}
-    .nav-links a:hover{opacity:.7}
-
-    /* ドロップダウン */
-    .dropdown>a::after{content:" ▼";font-size:.8rem}
-    .submenu{display:none;position:absolute;top:100%;left:0;background:#fff;color:#333;min-width:150px;list-style:none;padding:10px 0;box-shadow:0 2px 5px rgba(0,0,0,.3)}
-    .submenu li a{color:#333;padding:8px 15px;display:block;font-weight:normal}
-    .submenu li a:hover{background:#f0f0f0}
-    .dropdown:hover .submenu{display:block}
-
-    /* ===== ヒーローセクション ===== */
-    .hero{height:100vh;background:url("IMG_1883-2.png") no-repeat center/cover;display:flex;justify-content:center;align-items:center;text-align:center;position:relative}
-    .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.3);z-index:1}
-    .hero-text{position:relative;z-index:2;color:#fff;max-width:800px;padding:20px}
-    .hero-text h1{font-size:2.5rem;margin-bottom:1rem}
-
-    /* === Scroll ボタン === */
-    .scroll-btn{
-      position:absolute;
-      bottom:30px;left:50%;
-      transform:translateX(-50%);
-      z-index:2;
-      color:#fff;
-      font-size:0.9rem;
-      text-decoration:none;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:5px;
+    /* ヘッダー（ナビゲーション） */
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
     }
-    .scroll-btn span.arrow{
-      width:24px;height:24px;
-      border-left:2px solid #fff;
-      border-bottom:2px solid #fff;
-      transform:rotate(-45deg);
-      animation:down 1.5s infinite;
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    @keyframes down{
-      0%{transform:rotate(-45deg) translateY(0)}
-      50%{transform:rotate(-45deg) translateY(6px)}
-      100%{transform:rotate(-45deg) translateY(0)}
+    .logo {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
-
-    /* ===== メイン ===== */
-    main{max-width:1200px;margin:0 auto;padding:80px 20px;background:#fff}
-    main section{margin-bottom:60px}
-    main section h2{font-size:1.8rem;border-bottom:2px solid #333;margin-bottom:20px;padding-bottom:5px}
-
-    /* ===== フッター ===== */
-    footer{background:#003366;color:#fff;text-align:center;padding:20px}
-
-    /* ===== スマホ用 ===== */
-    @media(max-width:600px){
-      .hamburger{display:block}
-      .nav-links{position:absolute;top:60px;right:0;background:rgba(0,0,0,.9);flex-direction:column;gap:15px;width:200px;padding:20px;display:none}
-      .nav-links li{width:100%}
-      .nav-links a{display:block;width:100%}
-      .submenu{position:static;background:transparent;box-shadow:none}
-      .submenu li a{color:#fff;padding-left:30px}
-      .dropdown:hover .submenu{display:block}
-      .hero-text h1{font-size:1.8rem}
+    /* ハンバーガーボタン */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    /* ナビゲーション UL */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 5px 10px;
+      transition: opacity 0.3s;
+    }
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+    /* ドロップダウンのサブメニュー */
+    .dropdown > a::after {
+      content: " ▼";
+      font-size: 0.8rem;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      color: #333;
+      min-width: 150px;
+      list-style: none;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .submenu li a {
+      color: #333;
+      padding: 8px 15px;
+      display: block;
+      font-weight: normal;
+    }
+    .submenu li a:hover {
+      background-color: #f0f0f0;
+    }
+    /* PC表示時：ドロップダウンはホバーで表示 */
+    .dropdown:hover .submenu {
+      display: block;
+    }
+    /* ヒーローセクション */
+    .hero {
+      height: 100vh;
+      background: url("IMG_1883-2.png") no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    /* Scroll ボタン */
+    .scroll-btn {
+      position: absolute;
+      bottom: 60px; /* 従来30pxから60pxに変更して上に表示 */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #fff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .scroll-btn span.arrow {
+      width: 24px;
+      height: 24px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+      animation: down 1.5s infinite;
+    }
+    @keyframes down {
+      0% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-45deg) translateY(6px); }
+      100% { transform: rotate(-45deg) translateY(0); }
+    }
+    /* メインコンテンツ */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      background-color: #fff;
+    }
+    main section {
+      margin-bottom: 60px;
+    }
+    main section h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #333;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+    /* お知らせ・リンク・連絡先 */
+    #news ul,
+    #links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #news ul li,
+    #links ul li {
+      margin-bottom: 10px;
+    }
+    #news a,
+    #links a {
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #news a:hover,
+    #links a:hover {
+      text-decoration: underline;
+    }
+    /* フッター */
+    footer {
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    /* スマホ用メディアクエリ */
+    @media (max-width: 600px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links li a {
+        display: block;
+        width: 100%;
+      }
+      .submenu {
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .submenu li a {
+        color: #fff;
+        padding-left: 30px;
+      }
+      .dropdown:hover .submenu {
+        display: block;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+      main {
+        padding: 60px 10px;
+      }
+      main section h2 {
+        font-size: 1.5rem;
+      }
+      main section p {
+        font-size: 0.9rem;
+      }
     }
   </style>
-
   <script>
-    /* ハンバーガーメニュー開閉 */
-    function toggleMenu(){
-      const nav=document.getElementById("nav-links");
-      nav.style.display = nav.style.display==="flex" ? "none" : "flex";
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "flex";
+      }
     }
   </script>
 </head>
 <body>
 
-<!-- ===== ヘッダー ===== -->
-<header>
-  <div class="nav-container">
-    <div class="logo">岩井喬也のホームページ</div>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">プロフィール</a></li>
-      <li class="dropdown">
-        <a href="#">研究</a>
-        <ul class="submenu">
-          <li><a href="#">研究概要</a></li>
-          <li><a href="#">論文</a></li>
-          <li><a href="presentations.html">発表</a></li>
-        </ul>
-      </li>
-      <li><a href="#">お問い合わせ</a></li>
-    </ul>
+  <!-- ヘッダー -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">岩井喬也のホームページ</div>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li class="dropdown">
+          <a href="#">研究</a>
+          <ul class="submenu">
+            <li><a href="#">研究概要</a></li>
+            <li><a href="#">論文</a></li>
+            <li><a href="presentations.html">発表</a></li>
+          </ul>
+        </li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>岩井喬也のホームページへようこそ</h1>
+    </div>
+    <!-- Scroll ボタン -->
+    <a href="#news" class="scroll-btn">
+      Scroll
+      <span class="arrow"></span>
+    </a>
   </div>
-</header>
 
-<!-- ===== ヒーロー ===== -->
-<div class="hero">
-  <div class="hero-text">
-    <h1>岩井喬也のホームページへようこそ</h1>
-  </div>
-  <!-- Scroll ボタン -->
-  <a href="#news" class="scroll-btn">
-    Scroll
-    <span class="arrow"></span>
-  </a>
-</div>
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- お知らせセクション -->
+    <section id="news">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>
+          <a href="presentations.html#2025-02-25">
+            2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。
+          </a>
+        </li>
+      </ul>
+    </section>
 
-<!-- ===== メイン ===== -->
-<main>
-  <!-- お知らせセクション -->
-  <section id="news">
-    <h2>お知らせ</h2>
-    <ul>
-      <li><a href="presentations.html#2025-02-25">2025年2月25日に理論物理学生セミナー2025において口頭発表を行いました。</a></li>
-    </ul>
-  </section>
+    <!-- リンク集セクション -->
+    <section id="links">
+      <h2>リンク集</h2>
+      <ul>
+        <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
+        <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+        <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
+      </ul>
+    </section>
 
-  <!-- リンク集 -->
-  <section id="links">
-    <h2>リンク集</h2>
-    <ul>
-      <li><a href="https://www-het.phys.sci.osaka-u.ac.jp" target="_blank">大阪大学素粒子論研究室</a></li>
-      <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
-      <li><a href="https://inspirehep.net" target="_blank">Inspire</a></li>
-    </ul>
-  </section>
+    <!-- 連絡先セクション -->
+    <section id="contact">
+      <h2>連絡先</h2>
+      <p>
+        t_iwai at het.phys.sci.osaka-u.ac.jp<br>
+        ※ 「at」を「@」に置き換えてください
+      </p>
+    </section>
+  </main>
 
-  <!-- 連絡先 -->
-  <section id="contact">
-    <h2>連絡先</h2>
-    <p>t_iwai at het.phys.sci.osaka-u.ac.jp<br>※ 「at」を「@」に置き換えてください</p>
-  </section>
-</main>
-
-<!-- ===== フッター ===== -->
-<footer>
-  <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
-</footer>
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2025 Takaya Iwai. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
