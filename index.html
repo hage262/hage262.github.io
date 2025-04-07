@@ -21,6 +21,7 @@
       background-color: #f0f0f0;
       color: #333;
       padding-top: 60px; /* 固定ヘッダー分の余白 */
+      overflow-x: hidden;
     }
     /* ヘッダー（ナビゲーション） */
     header {
@@ -112,8 +113,8 @@
     }
     /* ヒーローセクション */
     .hero {
-      margin-top: 60px; /* ヘッダーの高さ分下げる */
-      height: calc(100vh - 60px); /* ヘッダー分を除いた全画面 */
+      /* margin-top: 60px; ← 削除 */
+      height: calc(100vh - 60px); /* 画面全体からヘッダーの高さを引く */
       background: url("IMG_1883-2.png") no-repeat center center;
       background-size: cover;
       display: flex;
@@ -255,7 +256,7 @@
       }
       .hero-text h1 {
         font-size: 1.8rem;
-        white-space: normal; /* 折り返しを許可 */
+        white-space: normal;
       }
       main {
         padding: 60px 10px;
